@@ -1,17 +1,24 @@
 package core.model.hardware;
 
+import core.model.software.Software;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Hardware {
 
     private String name;
     private Type type;
     private int maxCapacity;
     private int maxMemory;
+    private List<Software> softwares;
 
     public Hardware(String name, Type type, int maxCapacity, int maxMemory) {
         this.name = name;
         this.type = type;
         this.maxCapacity = maxCapacity;
         this.maxMemory = maxMemory;
+        this.softwares = new ArrayList<>();
     }
 
     public int getMaxCapacity() {
