@@ -14,6 +14,14 @@ public abstract class Hardware {
         this.maxMemory = maxMemory;
     }
 
+    public int getMaxCapacity() {
+        return this.maxCapacity;
+    }
+
+    public int getMaxMemory() {
+        return this.maxMemory;
+    }
+
     protected enum Type {
         POWER,
         HEAVY
