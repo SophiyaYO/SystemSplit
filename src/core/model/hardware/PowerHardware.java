@@ -20,7 +20,7 @@ public class PowerHardware extends Hardware {
     public int getMaxMemory() {
         int baseMemory = super.getMaxMemory();
 
-        baseMemory += (baseCapacity * 3) / 4;
+        baseMemory += (baseMemory * 3) / 4;
 
         return baseMemory;
     }
