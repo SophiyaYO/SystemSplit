@@ -29,6 +29,10 @@ public abstract class Hardware {
         return this.maxMemory;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     protected enum Type {
         POWER,
         HEAVY
