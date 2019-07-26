@@ -8,11 +8,20 @@ public class PowerHardware extends Hardware {
 
     @Override
     public int getMaxCapacity() {
-        return super.getMaxCapacity();
+
+        int baseCapacity = super.getMaxCapacity();
+
+        baseCapacity -= (baseCapacity * 3) / 4;
+
+        return baseCapacity;
     }
 
     @Override
     public int getMaxMemory() {
-        return super.getMaxMemory();
+        int baseMemory = super.getMaxMemory();
+
+        baseMemory += (baseCapacity * 3) / 4;
+
+        return baseMemory;
     }
 }
