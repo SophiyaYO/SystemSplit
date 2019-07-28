@@ -26,4 +26,14 @@ public class SystemSplit {
             System.out.println(hardware.getMaxMemory());
         }
     }
+
+    public int getHardwareComponenetSize(){
+        return this.hardwareComponents.size();
+    }
+
+    public int getSoftwareComponenetCount(){
+        return this.hardwareComponents.values().stream()
+                .mapToInt(Hardware::getSoftwareCount)
+                .sum();
+    }
 }

@@ -5,8 +5,6 @@ import core.system.SystemSplit;
 public class AnalyzeCommand extends BaseCommand {
     private SystemSplit systemSplit;
 
-
-
     public AnalyzeCommand(Object... args) {
         super(args);
     }
@@ -19,5 +17,16 @@ public class AnalyzeCommand extends BaseCommand {
     @Override
     public void execute() {
 
+        StringBuilder builder = new StringBuilder();
+
+        int hardwareComponentsCount = this.systemSplit
+
     }
 }
+//"Hardware Component – {componentName}
+//        Express Software Components - {countOfExpressSoftwareComponents}
+//        Light Software Components - {countOfLightSoftwareComponents}
+//        Memory Usage: {memoryUsed} / {maximumMemory}
+//        Capacity Usage: {capacityUsed} / {maximumCapacity}
+//        Type: {Power/Heavy}
+//        Software Components: {softwareComponent1, softwareComponent2…}"

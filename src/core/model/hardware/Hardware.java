@@ -33,6 +33,10 @@ public abstract class Hardware {
         return this.name;
     }
 
+    public int getSoftwareCount() {
+        return this.softwares.size();
+    }
+
     public void addSoftware(Software software) {
         if (software.getMemoryConsumption() <= this.getMaxMemory() &&
                 software.getCapacityConsumption() <= this.maxCapacity) {
