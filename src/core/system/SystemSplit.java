@@ -50,4 +50,20 @@ public class SystemSplit {
                 .mapToInt(Hardware::getUsedCapacity)
                 .sum();
     }
+
+    public int getMaximumMemory() {
+        return  this.hardwareComponents
+                .values()
+                .stream()
+                .mapToInt(Hardware::getMaxMemory)
+                .sum();
+    }
+
+    public int getMaximumCapacity() {
+        return  this.hardwareComponents
+                .values()
+                .stream()
+                .mapToInt(Hardware::getMaxCapacity)
+                .sum();
+    }
 }

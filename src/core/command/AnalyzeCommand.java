@@ -25,7 +25,8 @@ public class AnalyzeCommand extends BaseCommand {
         int totalMemoryInUsed = this.systemSplit.getTotalOperationalMemoryInUse();
         int totalCapacityTaken = this.systemSplit.getTotalCapacityTaken();
 
-
+        int maxMemory = this.systemSplit.getMaximumMemory();
+        int maxCapacity = this.systemSplit.getMaximumCapacity();
 
     }
 }
