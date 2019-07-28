@@ -1,4 +1,4 @@
-package core;
+package core.engine;
 
 import core.command.Command;
 import core.command.factory.CommandFactory;

@@ -1,4 +1,4 @@
-import core.Engine;
+import core.engine.Engine;
 import core.inputOutput.reader.ConsoleReader;
 import core.inputOutput.reader.Reader;
 import core.system.SystemSplit;
