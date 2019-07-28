@@ -37,8 +37,18 @@ public abstract class Hardware {
         if (software.getMemoryConsumption() <= this.getMaxMemory() &&
                 software.getCapacityConsumption() <= this.maxCapacity) {
             this.softwares.add(software);
+            this.setMaxCapacity(this.maxCapacity - software.getCapacityConsumption());
+            this.setMaxCapacity(this.maxMemory - software.getMemoryConsumption());
 
         }
+    }
+
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public void setMaxMemory(int maxMemory) {
+        this.maxMemory = maxMemory;
     }
 
     protected enum Type {
