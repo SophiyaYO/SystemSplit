@@ -19,7 +19,8 @@ public class AnalyzeCommand extends BaseCommand {
 
         StringBuilder builder = new StringBuilder();
 
-        int hardwareComponentsCount = this.systemSplit
+        int hardwareComponentsCount = this.systemSplit.getHardwareComponenetSize();
+        int softwareComponentsCount = this.systemSplit.getSoftwareComponenetCount();
 
     }
 }

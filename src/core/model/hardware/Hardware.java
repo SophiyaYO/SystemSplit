@@ -12,6 +12,8 @@ public abstract class Hardware {
     private int maxCapacity;
     private int maxMemory;
     private List<Software> softwares;
+    private int usedCapacity;
+    private int usedMemory;
 
     public Hardware(String name, Type type, int maxCapacity, int maxMemory) {
         this.name = name;
@@ -19,6 +21,8 @@ public abstract class Hardware {
         this.maxCapacity = maxCapacity;
         this.maxMemory = maxMemory;
         this.softwares = new ArrayList<>();
+        this.usedCapacity = 0;
+        this.usedMemory = 0;
     }
 
     public int getMaxCapacity() {
@@ -48,7 +52,18 @@ public abstract class Hardware {
         }
     }
 
-    protected abstract void setUsedResourses(Software software);
+    public final int getUsedCapacity() {
+        return this.usedCapacity;
+    }
+
+    public final int getUsedMemory() {
+        return this.usedMemory;
+    }
+
+    private void setUsedResourses(Software software){
+        this.usedCapacity += software.getCapacityConsumption();
+        this.usedMemory += software.getMemoryConsumption();
+    }
 
     protected enum Type {
         POWER,

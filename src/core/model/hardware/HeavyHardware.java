@@ -3,15 +3,13 @@ package core.model.hardware;
 import core.model.software.Software;
 
 public class HeavyHardware extends Hardware {
-    private int usedCapacity;
-    private int usedMemory;
+
 
     //TODO extract magic numbers as constants
 
     public HeavyHardware(String name, int maxCapacity, int maxMemory) {
         super(name, Type.HEAVY, maxCapacity, maxMemory);
-        this.usedCapacity = 0;
-        this.usedMemory = 0;
+
     }
 
     @Override
@@ -20,7 +18,7 @@ public class HeavyHardware extends Hardware {
 
         baseCapacity *= 2;
 
-        return baseCapacity - this.usedCapacity;
+        return baseCapacity - super.getUsedCapacity();
     }
 
     @Override
@@ -29,12 +27,7 @@ public class HeavyHardware extends Hardware {
 
         baseMemory -= baseMemory / 4;
 
-        return baseMemory - this.usedMemory;
+        return baseMemory - super.getUsedMemory();
     }
 
-    @Override
-    protected void setUsedResourses(Software software) {
-        this.usedCapacity += software.getCapacityConsumption();
-        this.usedMemory += software.getMemoryConsumption();
-    }
 }

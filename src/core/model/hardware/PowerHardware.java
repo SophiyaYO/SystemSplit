@@ -4,13 +4,11 @@ import core.model.software.Software;
 
 public class PowerHardware extends Hardware {
 
-    private int usedCapacity;
-    private int usedMemory;
+
 
     public PowerHardware(String name, int maxCapacity, int maxMemory) {
         super(name, Type.POWER, maxCapacity, maxMemory);
-        this.usedCapacity = 0;
-        this.usedMemory = 0;
+
     }
 
     @Override
@@ -20,7 +18,7 @@ public class PowerHardware extends Hardware {
 
         baseCapacity -= (baseCapacity * 3) / 4;
 
-        return baseCapacity - this.usedCapacity;
+        return baseCapacity - super.getUsedCapacity();
     }
 
     @Override
@@ -30,12 +28,7 @@ public class PowerHardware extends Hardware {
 
         baseMemory += (baseMemory * 3) / 4;
 
-        return baseMemory - this.usedMemory;
+        return baseMemory - super.getUsedMemory();
     }
 
-    @Override
-    protected void setUsedResourses(Software software) {
-        this.usedCapacity += software.getCapacityConsumption();
-        this.usedMemory += software.getMemoryConsumption();
-    }
 }
