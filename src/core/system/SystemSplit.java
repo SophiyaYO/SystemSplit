@@ -5,6 +5,7 @@ import core.model.software.Software;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.ToIntFunction;
 
 public class SystemSplit {
 
@@ -32,38 +33,30 @@ public class SystemSplit {
     }
 
     public int getSoftwareComponentCount(){
-        return this.hardwareComponents.values().stream()
-                .mapToInt(Hardware::getSoftwareCount)
-                .sum();
+        return this.getSumValue(Hardware::getSoftwareCount);
     }
 
     public int getTotalOperationalMemoryInUse() {
-       return this.hardwareComponents.values()
-                .stream()
-                .mapToInt(Hardware::getUsedMemory)
-                .sum();
+       return this.getSumValue(Hardware::getUsedCapacity);
     }
 
     public int getTotalCapacityTaken(){
-        return this.hardwareComponents.values()
-                .stream()
-                .mapToInt(Hardware::getUsedCapacity)
-                .sum();
+        return this.getSumValue(Hardware::getUsedCapacity);
     }
 
     public int getMaximumMemory() {
-        return  this.hardwareComponents
-                .values()
-                .stream()
-                .mapToInt(Hardware::getMaxMemory)
-                .sum();
+        return  this.getSumValue(Hardware::getMaxMemory);
     }
 
     public int getMaximumCapacity() {
+        return  this.getSumValue(Hardware::getMaxCapacity);
+    }
+
+    private int getSumValue(ToIntFunction<Hardware> function) {
         return  this.hardwareComponents
                 .values()
                 .stream()
-                .mapToInt(Hardware::getMaxCapacity)
+                .mapToInt(function)
                 .sum();
     }
 }
