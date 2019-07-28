@@ -1,6 +1,7 @@
 package core.system;
 
 import core.model.hardware.Hardware;
+import core.model.software.Software;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,5 +18,9 @@ public class SystemSplit {
         this.hardwareComponents.put(hardware.getName(), hardware);
     }
 
-
+    public void addSoftwareToHardware(String hardwareName, Software software) {
+        if (this.hardwareComponents.containsKey(hardwareName)) {
+            this.hardwareComponents.get(hardwareName).addSoftware(software);
+        }
+    }
 }
