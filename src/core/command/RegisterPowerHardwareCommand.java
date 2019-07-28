@@ -11,6 +11,9 @@ public class RegisterPowerHardwareCommand extends BaseCommand{
     private int capacity;
     private int memory;
 
+    public RegisterPowerHardwareCommand(Object... args) {
+        super(args);
+    }
 
     @Override
     protected void parseArgs(Object... args) {
