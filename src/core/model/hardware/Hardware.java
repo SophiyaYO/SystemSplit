@@ -36,21 +36,15 @@ public abstract class Hardware {
     public void addSoftware(Software software) {
         if (software.getMemoryConsumption() <= this.getMaxMemory() &&
                 software.getCapacityConsumption() <= this.maxCapacity) {
+
             this.softwares.add(software);
 
-//            this.setMaxCapacity(this.getMaxCapacity() - software.getCapacityConsumption());
-//            this.setMaxCapacity(this.getMaxMemory() - software.getMemoryConsumption());
+            this.setUsedResourses(software);
 
         }
     }
 
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-
-    public void setMaxMemory(int maxMemory) {
-        this.maxMemory = maxMemory;
-    }
+    protected abstract void setUsedResourses(Software software);
 
     protected enum Type {
         POWER,

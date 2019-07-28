@@ -1,5 +1,7 @@
 package core.model.hardware;
 
+import core.model.software.Software;
+
 public class PowerHardware extends Hardware {
 
     public PowerHardware(String name, int maxCapacity, int maxMemory) {
@@ -24,5 +26,10 @@ public class PowerHardware extends Hardware {
         baseMemory += (baseMemory * 3) / 4;
 
         return baseMemory;
+    }
+
+    @Override
+    protected void setUsedResourses(Software software) {
+
     }
 }
