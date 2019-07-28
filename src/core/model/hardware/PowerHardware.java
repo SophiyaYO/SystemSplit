@@ -18,6 +18,7 @@ public class PowerHardware extends Hardware {
 
     @Override
     public int getMaxMemory() {
+
         int baseMemory = super.getMaxMemory();
 
         baseMemory += (baseMemory * 3) / 4;

@@ -21,11 +21,11 @@ public abstract class Hardware {
         this.softwares = new ArrayList<>();
     }
 
-    private int getMaxCapacity() {
+    public int getMaxCapacity() {
         return this.maxCapacity;
     }
 
-    private int getMaxMemory() {
+    public int getMaxMemory() {
         return this.maxMemory;
     }
 
@@ -37,8 +37,9 @@ public abstract class Hardware {
         if (software.getMemoryConsumption() <= this.getMaxMemory() &&
                 software.getCapacityConsumption() <= this.maxCapacity) {
             this.softwares.add(software);
-            this.setMaxCapacity(this.maxCapacity - software.getCapacityConsumption());
-            this.setMaxCapacity(this.maxMemory - software.getMemoryConsumption());
+
+//            this.setMaxCapacity(this.getMaxCapacity() - software.getCapacityConsumption());
+//            this.setMaxCapacity(this.getMaxMemory() - software.getMemoryConsumption());
 
         }
     }

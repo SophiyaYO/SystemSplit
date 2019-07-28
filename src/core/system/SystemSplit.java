@@ -20,7 +20,10 @@ public class SystemSplit {
 
     public void addSoftwareToHardware(String hardwareName, Software software) {
         if (this.hardwareComponents.containsKey(hardwareName)) {
-            this.hardwareComponents.get(hardwareName).addSoftware(software);
+            Hardware hardware = this.hardwareComponents.get(hardwareName);
+            hardware.addSoftware(software);
+            System.out.println(hardware.getMaxCapacity());
+            System.out.println(hardware.getMaxMemory());
         }
     }
 }
