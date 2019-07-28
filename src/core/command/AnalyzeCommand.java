@@ -22,6 +22,11 @@ public class AnalyzeCommand extends BaseCommand {
         int hardwareComponentsCount = this.systemSplit.getHardwareComponentSize();
         int softwareComponentsCount = this.systemSplit.getSoftwareComponentCount();
 
+        int totalMemoryInUsed = this.systemSplit.getTotalOperationalMemoryInUse();
+        int totalCapacityTaken = this.systemSplit.getTotalCapacityTaken();
+
+
+
     }
 }
 //"Hardware Component – {componentName}
