@@ -10,6 +10,8 @@ public class HeavyHardware extends Hardware {
 
     public HeavyHardware(String name, int maxCapacity, int maxMemory) {
         super(name, Type.HEAVY, maxCapacity, maxMemory);
+        this.usedCapacity = 0;
+        this.usedMemory = 0;
     }
 
     @Override
