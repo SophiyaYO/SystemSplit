@@ -13,5 +13,9 @@ public class SystemSplit {
         this.hardwareComponents = new HashMap<>();
     }
 
+    public void addHardwareComponent(Hardware hardware) {
+        this.hardwareComponents.put(hardware.getName(), hardware);
+    }
+
 
 }

@@ -20,4 +20,9 @@ public abstract class Software {
     public int getMemoryConsumption() {
         return this.memoryConsumption;
     }
+
+    public enum Type {
+        EXPRESS,
+        LIGHT
+    }
 }

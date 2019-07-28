@@ -27,7 +27,6 @@ public class RegisterPowerHardwareCommand extends BaseCommand{
     public void execute() {
         Hardware hardware = new PowerHardware(this.name, this.capacity, this.memory);
 
-
     }
 
     public void addHardwareComponent(Hardware hardware) {
