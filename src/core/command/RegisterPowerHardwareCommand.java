@@ -31,6 +31,6 @@ public class RegisterPowerHardwareCommand extends BaseCommand{
     }
 
     public void addHardwareComponent(Hardware hardware) {
-        this.addHardwareComponent();
+        this.addHardwareComponent(hardware);
     }
 }

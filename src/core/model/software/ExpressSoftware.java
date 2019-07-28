@@ -12,6 +12,8 @@ public class ExpressSoftware extends Software {
 
     @Override
     public int getMemoryConsumption() {
-        return super.getMemoryConsumption();
+        int baseMemory = super.getMemoryConsumption();
+        baseMemory *= 2;
+        return baseMemory;
     }
 }

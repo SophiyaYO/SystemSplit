@@ -7,11 +7,15 @@ public class LightSoftware extends Software {
 
     @Override
     public int getCapacityConsumption() {
-        return super.getCapacityConsumption();
+        int baseCapacity = super.getCapacityConsumption();
+        baseCapacity += baseCapacity/2;
+        return baseCapacity;
     }
 
     @Override
     public int getMemoryConsumption() {
-        return super.getMemoryConsumption();
+        int memory = super.getMemoryConsumption();
+        memory -= memory/2;
+        return memory;
     }
 }
