@@ -5,7 +5,7 @@ import core.command.Command;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class CommandFactory {
+public final class CommandFactory {
     private static final String BASE_COMMAND_PACKAGE = "core.command.";
     private static final String COMMAND_SUFFIX = "Command";
 
