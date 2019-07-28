@@ -1,5 +1,6 @@
 package core.command;
 
+import core.model.hardware.Hardware;
 import core.system.SystemSplit;
 
 public class AnalyzeCommand extends BaseCommand {
@@ -28,6 +29,26 @@ public class AnalyzeCommand extends BaseCommand {
         int maxMemory = this.systemSplit.getMaximumMemory();
         int maxCapacity = this.systemSplit.getMaximumCapacity();
 
+        builder.append("System Analysis")
+                .append(System.lineSeparator())
+                .append(String.format(
+                        "Hardware Components: %d",
+                        hardwareComponentsCount))
+                .append(System.lineSeparator())
+                .append(String.format(
+                        "Software Components: %d",
+                        softwareComponentsCount))
+                .append(System.lineSeparator())
+                .append(String.format("Total Operational Memory: %d / %d",
+                        totalMemoryInUsed,
+                        maxMemory))
+                .append(System.lineSeparator())
+                .append(String.format("Total Capacity Taken: %d / %d",
+                        totalCapacityTaken,
+                        maxCapacity));
+
+        System.out.println(builder.toString().trim());
+
     }
 }
 //"Hardware Component – {componentName}
@@ -37,3 +58,8 @@ public class AnalyzeCommand extends BaseCommand {
 //        Capacity Usage: {capacityUsed} / {maximumCapacity}
 //        Type: {Power/Heavy}
 //        Software Components: {softwareComponent1, softwareComponent2…}"
+//Hardware Components: {countOfHardwareComponents}
+//        Software Components: {countOfSoftwareComponents}
+//        Total Operational Memory: {totalOperationalMemoryInUse} / {maximumMemory}
+//        Total Capacity Taken: {totalCapacityTaken} / {maximumCapacity}"
+
