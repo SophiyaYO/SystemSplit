@@ -21,11 +21,11 @@ public abstract class Hardware {
         this.softwares = new ArrayList<>();
     }
 
-    public int getMaxCapacity() {
+    private int getMaxCapacity() {
         return this.maxCapacity;
     }
 
-    public int getMaxMemory() {
+    private int getMaxMemory() {
         return this.maxMemory;
     }
 
