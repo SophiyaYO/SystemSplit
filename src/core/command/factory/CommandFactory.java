@@ -10,7 +10,7 @@ public final class CommandFactory {
     private static final String COMMAND_SUFFIX = "Command";
 
     @SuppressWarnings("unchecked")
-    public Command buildCommand(String name, Object... args) {
+    public static Command buildCommand(String name, Object... args) {
 
         try {
             Class commandClass = Class.forName(BASE_COMMAND_PACKAGE + COMMAND_SUFFIX);
