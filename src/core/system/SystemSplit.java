@@ -27,13 +27,27 @@ public class SystemSplit {
         }
     }
 
-    public int getHardwareComponenetSize(){
+    public int getHardwareComponentSize(){
         return this.hardwareComponents.size();
     }
 
-    public int getSoftwareComponenetCount(){
+    public int getSoftwareComponentCount(){
         return this.hardwareComponents.values().stream()
                 .mapToInt(Hardware::getSoftwareCount)
+                .sum();
+    }
+
+    public int getTotalOperationalMemoryInUse() {
+       return this.hardwareComponents.values()
+                .stream()
+                .mapToInt(Hardware::getUsedMemory)
+                .sum();
+    }
+
+    public int getTotalCapacityTaken(){
+        return this.hardwareComponents.values()
+                .stream()
+                .mapToInt(Hardware::getUsedCapacity)
                 .sum();
     }
 }
