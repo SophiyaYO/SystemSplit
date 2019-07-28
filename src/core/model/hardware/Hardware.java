@@ -33,6 +33,14 @@ public abstract class Hardware {
         return this.name;
     }
 
+    public void addSoftware(Software software) {
+        if (software.getMemoryConsumption() <= this.getMaxMemory() &&
+                software.getCapacityConsumption() <= this.maxCapacity) {
+            this.softwares.add(software);
+
+        }
+    }
+
     protected enum Type {
         POWER,
         HEAVY
