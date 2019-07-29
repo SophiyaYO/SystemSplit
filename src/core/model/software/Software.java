@@ -21,6 +21,10 @@ public abstract class Software {
         return this.memoryConsumption;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public enum Type {
         EXPRESS,
         LIGHT
