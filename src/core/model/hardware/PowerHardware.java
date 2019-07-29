@@ -1,14 +1,9 @@
 package core.model.hardware;
 
-import core.model.software.Software;
-
 public class PowerHardware extends Hardware {
-
-
 
     public PowerHardware(String name, int maxCapacity, int maxMemory) {
         super(name, Type.POWER, maxCapacity, maxMemory);
-
     }
 
     @Override
@@ -16,7 +11,7 @@ public class PowerHardware extends Hardware {
 
         int baseCapacity = super.getMaxCapacity();
 
-        baseCapacity -= (baseCapacity * 3) / 4;
+        baseCapacity -= ((baseCapacity * 3) / 4);
 
         return baseCapacity - super.getUsedCapacity();
     }
@@ -26,7 +21,7 @@ public class PowerHardware extends Hardware {
 
         int baseMemory = super.getMaxMemory();
 
-        baseMemory += (baseMemory * 3) / 4;
+        baseMemory += ((baseMemory * 3) / 4);
 
         return baseMemory - super.getUsedMemory();
     }

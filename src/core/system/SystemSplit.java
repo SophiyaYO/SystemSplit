@@ -23,8 +23,7 @@ public class SystemSplit {
         if (this.hardwareComponents.containsKey(hardwareName)) {
             Hardware hardware = this.hardwareComponents.get(hardwareName);
             hardware.addSoftware(software);
-            System.out.println(hardware.getMaxCapacity());
-            System.out.println(hardware.getMaxMemory());
+
         }
     }
 
@@ -37,7 +36,7 @@ public class SystemSplit {
     }
 
     public int getTotalOperationalMemoryInUse() {
-       return this.getSumValue(Hardware::getUsedCapacity);
+       return this.getSumValue(Hardware::getUsedMemory);
     }
 
     public int getTotalCapacityTaken(){

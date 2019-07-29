@@ -1,6 +1,5 @@
 package core.command;
 
-import core.model.hardware.Hardware;
 import core.system.SystemSplit;
 
 public class AnalyzeCommand extends BaseCommand {
@@ -26,8 +25,8 @@ public class AnalyzeCommand extends BaseCommand {
         int totalMemoryInUsed = this.systemSplit.getTotalOperationalMemoryInUse();
         int totalCapacityTaken = this.systemSplit.getTotalCapacityTaken();
 
-        int maxMemory = this.systemSplit.getMaximumMemory();
-        int maxCapacity = this.systemSplit.getMaximumCapacity();
+        int maxMemory = this.systemSplit.getMaximumMemory() + totalMemoryInUsed;
+        int maxCapacity = this.systemSplit.getMaximumCapacity() + totalCapacityTaken;
 
         builder.append("System Analysis")
                 .append(System.lineSeparator())
@@ -58,8 +57,5 @@ public class AnalyzeCommand extends BaseCommand {
 //        Capacity Usage: {capacityUsed} / {maximumCapacity}
 //        Type: {Power/Heavy}
 //        Software Components: {softwareComponent1, softwareComponent2…}"
-//Hardware Components: {countOfHardwareComponents}
-//        Software Components: {countOfSoftwareComponents}
-//        Total Operational Memory: {totalOperationalMemoryInUse} / {maximumMemory}
-//        Total Capacity Taken: {totalCapacityTaken} / {maximumCapacity}"
+
 
