@@ -1,7 +1,5 @@
 package core.model.hardware;
 
-import core.model.software.Software;
-
 public class HeavyHardware extends Hardware {
 
 
