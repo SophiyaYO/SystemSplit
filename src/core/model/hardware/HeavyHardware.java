@@ -28,4 +28,8 @@ public class HeavyHardware extends Hardware {
         return baseMemory - super.getUsedMemory();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

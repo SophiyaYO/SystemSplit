@@ -26,4 +26,9 @@ public class PowerHardware extends Hardware {
         return baseMemory - super.getUsedMemory();
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
