@@ -9,7 +9,7 @@ import java.util.function.ToIntFunction;
 
 public class SystemSplit {
 
-    private Map<String , Hardware> hardwareComponents;
+    private Map<String, Hardware> hardwareComponents;
 
     public SystemSplit() {
         this.hardwareComponents = new LinkedHashMap<>();
@@ -37,39 +37,48 @@ public class SystemSplit {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
+
         this.hardwareComponents.values().stream()
-                .sorted((f,s)-> {
-if ()
+                .sorted((f, s) -> {
+                    if (f.getType().equalsIgnoreCase("Power")) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
                 })
-        return super.toString();
+                .forEach(h -> builder
+                        .append(h.toString())
+                        .append(System.lineSeparator()));
+
+        return builder.toString().trim();
     }
 
-    public int getHardwareComponentSize(){
+    public int getHardwareComponentSize() {
         return this.hardwareComponents.size();
     }
 
-    public int getSoftwareComponentCount(){
+    public int getSoftwareComponentCount() {
         return this.getSumValue(Hardware::getSoftwareCount);
     }
 
     public int getTotalOperationalMemoryInUse() {
-       return this.getSumValue(Hardware::getUsedMemory);
+        return this.getSumValue(Hardware::getUsedMemory);
     }
 
-    public int getTotalCapacityTaken(){
+    public int getTotalCapacityTaken() {
         return this.getSumValue(Hardware::getUsedCapacity);
     }
 
     public int getMaximumMemory() {
-        return  this.getSumValue(Hardware::getMaxMemory);
+        return this.getSumValue(Hardware::getMaxMemory);
     }
 
     public int getMaximumCapacity() {
-        return  this.getSumValue(Hardware::getMaxCapacity);
+        return this.getSumValue(Hardware::getMaxCapacity);
     }
 
     private int getSumValue(ToIntFunction<Hardware> function) {
-        return  this.hardwareComponents
+        return this.hardwareComponents
                 .values()
                 .stream()
                 .mapToInt(function)
