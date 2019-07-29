@@ -5,7 +5,6 @@ import core.model.software.Software;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BinaryOperator;
-import java.util.function.UnaryOperator;
 
 public abstract class Hardware {
 
@@ -63,10 +62,9 @@ public abstract class Hardware {
     }
 
     private void setUsedResourses(Software software, BinaryOperator<Integer> operator){
-        operator.apply(this.usedCapacity, software.getCapacityConsumption());
-        operator.apply(this.usedMemory, software.getMemoryConsumption());
-//        this.usedCapacity += software.getCapacityConsumption();
-//        this.usedMemory += software.getMemoryConsumption();
+        this.usedCapacity =  operator.apply(this.usedCapacity, software.getCapacityConsumption());
+        this.usedMemory = operator.apply(this.usedMemory, software.getMemoryConsumption());
+
     }
 
     public void removeSoftware(String softwareName) {
