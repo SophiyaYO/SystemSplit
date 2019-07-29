@@ -3,6 +3,8 @@ package core.model.hardware;
 import core.model.software.Software;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -62,11 +64,10 @@ public abstract class Hardware {
         return this.usedMemory;
     }
 
-    private void setUsedResourses(Software software, BinaryOperator<Integer> operator){
-        this.usedCapacity =  operator.apply(this.usedCapacity, software.getCapacityConsumption());
-        this.usedMemory = operator.apply(this.usedMemory, software.getMemoryConsumption());
-
+    protected final List<Software> getSoftwares() {
+        return Collections.unmodifiableList(softwares);
     }
+
 
     public void removeSoftware(String softwareName) {
         Software software = this.softwares
@@ -86,6 +87,12 @@ public abstract class Hardware {
 
     public String  getType() {
         return this.type.name();
+    }
+
+    private void setUsedResourses(Software software, BinaryOperator<Integer> operator){
+        this.usedCapacity =  operator.apply(this.usedCapacity, software.getCapacityConsumption());
+        this.usedMemory = operator.apply(this.usedMemory, software.getMemoryConsumption());
+
     }
 
     @Override
