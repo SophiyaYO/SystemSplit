@@ -3,7 +3,7 @@ package core.system;
 import core.model.hardware.Hardware;
 import core.model.software.Software;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.ToIntFunction;
 
@@ -12,7 +12,7 @@ public class SystemSplit {
     private Map<String , Hardware> hardwareComponents;
 
     public SystemSplit() {
-        this.hardwareComponents = new HashMap<>();
+        this.hardwareComponents = new LinkedHashMap<>();
     }
 
     public void addHardwareComponent(Hardware hardware) {
@@ -32,6 +32,16 @@ public class SystemSplit {
             Hardware hardware = this.hardwareComponents.get(hardwareName);
             hardware.removeSoftware(softwareName);
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        this.hardwareComponents.values().stream()
+                .sorted((f,s)-> {
+if ()
+                })
+        return super.toString();
     }
 
     public int getHardwareComponentSize(){

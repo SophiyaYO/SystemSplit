@@ -84,6 +84,10 @@ public abstract class Hardware {
         }
     }
 
+    public Type getType() {
+        return this.type;
+    }
+
     @Override
     public String toString() {
         long expressSoftwareCount = this.softwares
