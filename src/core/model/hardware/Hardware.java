@@ -68,7 +68,6 @@ public abstract class Hardware {
         return Collections.unmodifiableList(softwares);
     }
 
-
     public void removeSoftware(String softwareName) {
         Software software = this.softwares
                 .stream()
