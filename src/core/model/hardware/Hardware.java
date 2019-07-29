@@ -90,33 +90,11 @@ public abstract class Hardware {
 
     @Override
     public String toString() {
-        long expressSoftwareCount = this.softwares
-                .stream()
-                .filter(s -> s.getClass()
-                        .getSimpleName()
-                        .equals("ExpressSoftware"))
-                .count();
-
-    return    String.format("Hardware Component – %s%n" +
-                "Express Software Components - %d%n" +
-                "Light Software Components - %d%n" +
-                "Memory Usage: %d / %d%n" +
-                "Capacity Usage: %d / %d%n" +
-                "Type: {Power/Heavy}%n" +
-                "Software Components: %s%n",
-            this.getName(),
-            expressSoftwareCount,
-            (this.softwares.size() - expressSoftwareCount),
-            this.usedMemory,
-            this.getMaxMemory() + this.usedMemory,
-            this.usedCapacity,
-            this.getUsedCapacity() + this.usedCapacity,
-            this.type.compareTo(Type.HEAVY) == 0 ? "Heavy" : "Power",
-            this.softwares.size() == 0 ? "None" :
-                    this.softwares.stream()
-            .map(Software::getName)
-            .collect(Collectors.joining(", "))
-            );
+        return this.softwares.size() == 0 ? "None" :
+                this.softwares
+                        .stream()
+                        .map(Software::getName)
+                        .collect(Collectors.joining(", "));
     }
 
     protected enum Type {
