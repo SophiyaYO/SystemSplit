@@ -27,6 +27,13 @@ public class SystemSplit {
         }
     }
 
+    public void releaseSoftware(String hardwareName, String softwareName) {
+        if (this.hardwareComponents.containsKey(hardwareName)) {
+            Hardware hardware = this.hardwareComponents.get(hardwareName);
+            hardware.removeSoftware(softwareName);
+        }
+    }
+
     public int getHardwareComponentSize(){
         return this.hardwareComponents.size();
     }
@@ -58,4 +65,6 @@ public class SystemSplit {
                 .mapToInt(function)
                 .sum();
     }
+
+
 }

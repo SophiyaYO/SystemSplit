@@ -4,6 +4,8 @@ import core.model.software.Software;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.UnaryOperator;
 
 public abstract class Hardware {
 
@@ -47,7 +49,7 @@ public abstract class Hardware {
 
             this.softwares.add(software);
 
-            this.setUsedResourses(software);
+            this.setUsedResourses(software, (a,b)-> a += b);
 
         }
     }
@@ -60,9 +62,27 @@ public abstract class Hardware {
         return this.usedMemory;
     }
 
-    private void setUsedResourses(Software software){
-        this.usedCapacity += software.getCapacityConsumption();
-        this.usedMemory += software.getMemoryConsumption();
+    private void setUsedResourses(Software software, BinaryOperator<Integer> operator){
+        operator.apply(this.usedCapacity, software.getCapacityConsumption());
+        operator.apply(this.usedMemory, software.getMemoryConsumption());
+//        this.usedCapacity += software.getCapacityConsumption();
+//        this.usedMemory += software.getMemoryConsumption();
+    }
+
+    public void removeSoftware(String softwareName) {
+        Software software = this.softwares
+                .stream()
+                .filter(s -> s.getName().equalsIgnoreCase(softwareName))
+                .findFirst()
+                .orElse(null);
+
+        if (software != null) {
+            this.softwares
+                    .remove(software);
+
+            this.setUsedResourses(software, (a,b) -> a -=b );
+
+        }
     }
 
     protected enum Type {
