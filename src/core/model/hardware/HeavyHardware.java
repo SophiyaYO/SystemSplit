@@ -41,14 +41,14 @@ public class HeavyHardware extends Hardware {
                         "Memory Usage: %d / %d%n" +
                         "Capacity Usage: %d / %d%n" +
                         "Type: %s%n" +
-                        "Software Components: %s%n",
+                        "Software Components: %s",
                 this.getName(),
                 expressSoftwareCount,
                 (this.getSoftwares().size() - expressSoftwareCount),
                 this.getUsedMemory(),
-                getMaxMemory() + this.getUsedMemory(),
+                this.getMaxMemory() + this.getUsedMemory(),
                 this.getUsedCapacity(),
-                getUsedCapacity() + this.getUsedCapacity(),
+                this.getUsedCapacity() + this.getMaxCapacity(),
                 this.getType().compareTo(Type.HEAVY.name()) == 0 ? "Heavy" : "Power",
                 super.toString());
 
