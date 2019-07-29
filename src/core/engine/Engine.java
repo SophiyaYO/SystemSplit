@@ -23,11 +23,8 @@ public class Engine {
         while (!END_COMMAND.equalsIgnoreCase(line)) {
 
             String[] tokens = line.split("[\\(,\\s\\)]+");
-
             String commandName = tokens[0];
-
             Object[] params = new Object[tokens.length];
-
             params[0] =this.systemSplit;
 
             for (int i = 1; i < tokens.length; i++) {
@@ -35,13 +32,16 @@ public class Engine {
             }
 
             Command command = CommandFactory.buildCommand(commandName, params);
-
             command.execute();
-
             line = this.reader.readLine();
 
 
         }
+
+        Command command = CommandFactory.buildCommand(
+                "SystemSplit", this.systemSplit);
+
+        command.execute();
     }
 
 }
