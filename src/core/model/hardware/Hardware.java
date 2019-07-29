@@ -84,8 +84,8 @@ public abstract class Hardware {
         }
     }
 
-    public Type getType() {
-        return this.type;
+    public String  getType() {
+        return this.type.name();
     }
 
     @Override
