@@ -29,6 +29,29 @@ public class PowerHardware extends Hardware {
 
     @Override
     public String toString() {
-        return super.toString();
+        long expressSoftwareCount = this.getSoftwares()
+                .stream()
+                .filter(s -> s.getClass()
+                        .getSimpleName()
+                        .equals("ExpressSoftware"))
+                .count();
+
+        return String.format("Hardware Component – %s%n" +
+                        "Express Software Components - %d%n" +
+                        "Light Software Components - %d%n" +
+                        "Memory Usage: %d / %d%n" +
+                        "Capacity Usage: %d / %d%n" +
+                        "Type: %s%n" +
+                        "Software Components: %s%n",
+                this.getName(),
+                expressSoftwareCount,
+                (this.getSoftwares().size() - expressSoftwareCount),
+                this.getUsedMemory(),
+                getMaxMemory() + this.getUsedMemory(),
+                this.getUsedCapacity(),
+                getUsedCapacity() + this.getUsedCapacity(),
+                this.getType().compareTo(Type.HEAVY.name()) == 0 ? "Heavy" : "Power",
+                super.toString());
+
     }
 }
